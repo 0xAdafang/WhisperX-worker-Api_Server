@@ -17,7 +17,7 @@ properties:
       - port: 8000
       environmentVariables:
       - name: HUGGING_FACE_HUB_TOKEN
-        secureValue: "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"
+        secureValue: "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" #token hugging face
   osType: Linux
   restartPolicy: Always
   ipAddress:
