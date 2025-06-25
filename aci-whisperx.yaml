@@ -1,0 +1,33 @@
+apiVersion: 2023-05-01
+location: canadacentral
+name: cg-whisperx
+properties:
+  containers:
+  - name: whisperx
+    properties:
+      image: acrwhisperx.azurecr.io/whisperx:latest
+      resources:
+        requests:
+          cpu: 4
+          memoryInGB: 28
+          gpu:
+            count: 1
+            sku: T4
+      ports:
+      - port: 8000
+      environmentVariables:
+      - name: HUGGING_FACE_HUB_TOKEN
+        secureValue: "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"
+  osType: Linux
+  restartPolicy: Always
+  ipAddress:
+    type: Public
+    ports:
+    - protocol: tcp
+      port: 8000
+identity:
+  type: UserAssigned
+  userAssignedIdentities:
+    /subscriptions/eaa3f88b-35de-4435-b33d-2b45cdf8f7ab/resourceGroups/rg-whisperx/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-whisperx: {}
+tags:
+  purpose: whisperx-transcoder

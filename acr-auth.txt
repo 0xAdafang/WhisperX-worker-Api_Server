@@ -1,0 +1,2 @@
+echo "acrwhisperx" > acr-auth.txt       
+echo "Tc7aiWryNuXEKrCntbbTcFfJrC/txLe69HNDwGfddP+ACRA/AA56" >> acr-auth.txt

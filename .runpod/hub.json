@@ -1,0 +1,35 @@
+{
+  "title": "WhisperX Worker",
+  "description": "Speech transcription with word-level timestamps and speaker diarization using WhisperX",
+  "type": "serverless",
+  "category": "audio",
+  "iconUrl": "https://blog.madiator.com/pictures/favicon.png",
+  "tags": ["speech-to-text", "transcription", "whisper", "diarization", "audio", "speaker identification"],
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 30,
+    "presets": [
+      {
+        "name": "Basic Transcription",
+        "description": "Automatic speech transcription with language detection"
+      },
+      {
+        "name": "Transcription with Alignment",
+        "description": "Transcription with word-level timestamp alignment"
+      },
+      {
+        "name": "Transcription with Diarization",
+        "description": "Full transcription with speaker identification"
+      },
+      {
+        "name": "Speaker Identification",
+        "description": "Selective speaker identification for audio files"
+      }
+    ]
+  },
+  "recommended": {
+    "gpu": "NVIDIA RTX A4000 or better",
+    "memory": 16,
+    "storage": 30
+  }
+}
