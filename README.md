@@ -1,56 +1,56 @@
 # 🧠 WhisperX Worker API Server (Azure ACI Edition)
 
-Ce projet est une adaptation du worker WhisperX initialement prévu pour RunPod, déployé désormais comme micro-service REST permanent sur **Azure Container Instances (ACI)** avec support GPU.
+This project is an adaptation of the original WhisperX worker initially designed for RunPod, now deployed as a **permanent REST microservice** on **Azure Container Instances (ACI)** with GPU support.
 
 ---
 
-## 🎯 Objectif
+## 🎯 Purpose
 
-Remplacer l’approche "job-based" de RunPod par une API toujours active dans un environnement cloud sécurisé, scalable et maîtrisé. L’API `/transcribe` permet de traiter des fichiers audio stockés sur Azure Blob en utilisant WhisperX (alignement, diarisation…).
-
----
-
-## ⚙️ Stack utilisée
-
-- Python + FastAPI
-- Docker
-- Azure Container Registry (ACR)
-- Azure Container Instances (ACI) avec GPU
-- Azure Blob Storage
-- Managed Identity (pour sécuriser les accès sans clés)
+Replace the "job-based" RunPod approach with an always-on API in a secure, scalable, and controlled cloud environment. The `/transcribe` endpoint processes audio files stored in Azure Blob using WhisperX (including alignment and diarization).
 
 ---
 
-## ✅ Ce que j’ai fait
+## ⚙️ Tech Stack
 
-- Containerisé le worker WhisperX dans une image Docker
-- Créé une API REST légère avec FastAPI (`/transcribe`, `/status`)
-- Mis en place un pipeline de build & push vers Azure Container Registry
-- Déployé le conteneur sur ACI avec GPU (Standard_NC6)
-- Sécurisé les accès aux blobs avec **SAS dynamiques** via identité managée
-- Refactoré mon script client pour dialoguer avec l’API ACI au lieu de RunPod
-
----
-
-## 📌 Pourquoi ?
-
-Ce projet m’a permis de :
-
-- Approfondir la gestion d’infrastructure cloud avec Azure (ACI, ACR, Identity, Storage)
-- Apprendre à sécuriser une API et des blobs sans exposer de secrets
-- Migrer une logique d’inférence ML vers une architecture **cloud-native**, sans dépendance externe
+- Python + FastAPI  
+- Docker  
+- Azure Container Registry (ACR)  
+- Azure Container Instances (ACI) with GPU  
+- Azure Blob Storage  
+- Managed Identity (for secure keyless access)  
 
 ---
 
-## 🔗 Repo lié
+## ✅ What I Did
 
-👉 Le repo d’origine du worker : [lproux/whisperx-worker](https://github.com/lproux/whisperx-worker)
+- Containerized the WhisperX worker into a Docker image  
+- Built a lightweight FastAPI server with `/transcribe` and `/status` endpoints  
+- Set up a build & push pipeline to Azure Container Registry  
+- Deployed the container to GPU-enabled ACI (Standard_NC6)  
+- Secured blob access using **dynamic SAS tokens** via Managed Identity  
+- Refactored the original client script to communicate with the ACI API instead of RunPod  
 
 ---
 
-## 🙏 Remerciements
+## 📌 Why This Project?
 
-Merci à mon ami [AI Engineer @ Microsoft] pour la procédure de migration RunPod → Azure.
+This project allowed me to:
+
+- Deepen my knowledge of cloud infrastructure using Azure (ACI, ACR, Identity, Storage)  
+- Learn how to secure APIs and blob access **without exposing any secrets**  
+- Migrate a machine learning inference pipeline to a **cloud-native architecture** with no third-party dependency  
+
+---
+
+## 🔗 Related Repository
+
+👉 Original WhisperX worker repo: [lproux/whisperx-worker](https://github.com/lproux/whisperx-worker)
+
+---
+
+## 🙏 Acknowledgements
+
+Special thanks to my friend [AI Engineer @ Microsoft] for guiding the RunPod → Azure migration process.
 
 ---
 
